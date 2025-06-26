@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -59,13 +60,15 @@ const Index = () => {
       title: 'Oltime Network',
       description: 'Cross-platform mobile application connecting job seekers with recruitment agencies in the US market. Successfully published to both App Store and Play Store.',
       tech: ['Flutter', 'Dart', 'Firebase', 'REST API', 'State Management'],
-      type: 'Mobile App'
+      type: 'Mobile App',
+      gradient: 'gradient-purple'
     },
     {
       title: 'CA Repository',
       description: 'Web platform for displaying CA documents and certificates from EJBCA, providing efficient access to Certificate Authority repositories.',
       tech: ['Flutter Web', 'EJBCA Integration', 'Document Management'],
-      type: 'Web Application'
+      type: 'Web Application',
+      gradient: 'gradient-blue'
     }
   ];
 
@@ -110,12 +113,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation - Apple style */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-xl z-50 border-b border-gray-100">
+    <div className="min-h-screen bg-black">
+      {/* Navigation - Modern Dark */}
+      <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-xl z-50 border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="font-semibold text-lg text-gray-900">SMT</div>
+            <div className="font-bold text-xl text-white">SMT</div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
@@ -123,8 +126,8 @@ const Index = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    activeSection === item.toLowerCase() ? 'text-blue-600' : 'text-gray-600'
+                  className={`text-sm font-medium transition-all duration-300 hover:text-purple-400 ${
+                    activeSection === item.toLowerCase() ? 'text-purple-400' : 'text-gray-300'
                   }`}
                 >
                   {item}
@@ -134,7 +137,7 @@ const Index = () => {
 
             {/* Mobile menu button */}
             <button 
-              className="md:hidden"
+              className="md:hidden text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -144,13 +147,13 @@ const Index = () => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100">
+          <div className="md:hidden bg-black/90 backdrop-blur-xl border-t border-gray-800">
             <div className="px-6 pt-4 pb-6 space-y-2">
               {['Home', 'About', 'Experience', 'Skills', 'Projects', 'Certifications', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block w-full text-left px-3 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 rounded-lg hover:bg-gray-50"
+                  className="block w-full text-left px-3 py-2 text-sm font-medium text-gray-300 hover:text-purple-400 rounded-lg hover:bg-gray-800/50 transition-all duration-300"
                 >
                   {item}
                 </button>
@@ -160,38 +163,39 @@ const Index = () => {
         )}
       </nav>
 
-      {/* Hero Section - Apple style */}
-      <section id="home" className="pt-32 pb-24 px-6">
-        <div className="max-w-4xl mx-auto">
+      {/* Hero Section - Modern Dark with Gradient */}
+      <section id="home" className="pt-32 pb-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 gradient-bg opacity-10"></div>
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="text-center">
               <div className="mb-12">
-                <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-xl">
+                <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl glow-effect">
                   <img 
                     src="/lovable-uploads/8418aaaa-30e3-4c93-ab70-05528f31419f.png" 
                     alt="Sidiq Muhammad Toha"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h1 className="text-5xl md:text-6xl font-semibold mb-4 text-gray-900 tracking-tight">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight">
                   Sidiq Muhammad Toha
                 </h1>
-                <p className="text-2xl md:text-3xl text-gray-600 mb-4 font-light">Flutter Developer</p>
-                <p className="text-lg text-gray-500 flex items-center justify-center gap-2">
+                <p className="text-3xl md:text-4xl text-gradient mb-6 font-semibold">Flutter Developer</p>
+                <p className="text-lg text-gray-400 flex items-center justify-center gap-2">
                   <MapPin size={18} />
                   Yogyakarta, Indonesia
                 </p>
               </div>
               
-              <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
+              <p className="text-xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
                 Software Developer with experience developing web and mobile applications using Flutter and Dart. 
                 Contribute to improving system efficiency and security through CI/CD implementation and vulnerability testing.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-4 mb-12">
+              <div className="flex flex-wrap justify-center gap-6 mb-12">
                 <Button 
                   size="lg" 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-xl font-semibold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105"
                   onClick={() => scrollToSection('contact')}
                 >
                   <Mail className="mr-2" size={18} />
@@ -199,8 +203,7 @@ const Index = () => {
                 </Button>
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 rounded-full font-medium"
+                  className="bg-gray-800 border-2 border-gray-700 text-white hover:bg-gray-700 hover:border-gray-600 px-8 py-4 rounded-xl font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   <Download className="mr-2" size={18} />
                   Download CV
@@ -208,17 +211,17 @@ const Index = () => {
               </div>
 
               <div className="flex justify-center space-x-8">
-                <a href="mailto:sidiqtoha2000@gmail.com" className="text-gray-500 hover:text-blue-600 transition-colors">
-                  <Mail size={24} />
+                <a href="mailto:sidiqtoha2000@gmail.com" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
+                  <Mail size={28} />
                 </a>
-                <a href="tel:+6283104846474" className="text-gray-500 hover:text-blue-600 transition-colors">
-                  <Phone size={24} />
+                <a href="tel:+6283104846474" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
+                  <Phone size={28} />
                 </a>
-                <a href="https://linkedin.com/in/sidiq-muhammad-toha" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 transition-colors">
-                  <Linkedin size={24} />
+                <a href="https://linkedin.com/in/sidiq-muhammad-toha" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
+                  <Linkedin size={28} />
                 </a>
-                <a href="https://github.com/sidiqmuhammadtoha24" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 transition-colors">
-                  <Github size={24} />
+                <a href="https://github.com/sidiqmuhammadtoha24" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
+                  <Github size={28} />
                 </a>
               </div>
             </div>
@@ -226,47 +229,47 @@ const Index = () => {
         </div>
         
         <div className="text-center mt-20">
-          <ChevronDown className="animate-bounce text-gray-400 mx-auto" size={32} />
+          <ChevronDown className="animate-bounce text-purple-400 mx-auto" size={32} />
         </div>
       </section>
 
-      {/* About Section - Apple style */}
-      <section id="about" className="py-24 px-6 bg-gray-50">
+      {/* About Section - Dark Cards */}
+      <section id="about" className="py-24 px-6 bg-gray-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">About Me</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">About Me</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Passionate about creating innovative mobile and web solutions with a focus on clean architecture and user experience.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Smartphone className="w-8 h-8 text-blue-600" />
+            <div className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
+              <div className="w-16 h-16 gradient-purple rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Smartphone className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Mobile Development</h3>
-              <p className="text-gray-600 font-light leading-relaxed">
+              <h3 className="text-xl font-bold text-white mb-4">Mobile Development</h3>
+              <p className="text-gray-300 leading-relaxed">
                 Specialized in Flutter cross-platform development with published apps on both App Store and Play Store.
               </p>
             </div>
 
-            <div className="text-center bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Globe className="w-8 h-8 text-blue-600" />
+            <div className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
+              <div className="w-16 h-16 gradient-blue rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Globe className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Web Development</h3>
-              <p className="text-gray-600 font-light leading-relaxed">
+              <h3 className="text-xl font-bold text-white mb-4">Web Development</h3>
+              <p className="text-gray-300 leading-relaxed">
                 Building responsive web applications and backend systems with modern technologies and best practices.
               </p>
             </div>
 
-            <div className="text-center bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Code className="w-8 h-8 text-blue-600" />
+            <div className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
+              <div className="w-16 h-16 gradient-pink rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Code className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">System Security</h3>
-              <p className="text-gray-600 font-light leading-relaxed">
+              <h3 className="text-xl font-bold text-white mb-4">System Security</h3>
+              <p className="text-gray-300 leading-relaxed">
                 Experienced in security testing, vulnerability assessment, and implementing CI/CD pipelines for secure deployments.
               </p>
             </div>
@@ -274,28 +277,28 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Experience Section - Apple style */}
-      <section id="experience" className="py-24 px-6 bg-white">
+      {/* Experience Section */}
+      <section id="experience" className="py-24 px-6 bg-black">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">Experience</h2>
-            <p className="text-xl text-gray-600 font-light">My professional journey in software development</p>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Experience</h2>
+            <p className="text-xl text-gray-300">My professional journey in software development</p>
           </div>
 
           <div className="space-y-12">
             {experience.map((exp, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+              <div key={index} className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
                   <div>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">{exp.role}</h3>
-                    <p className="text-lg font-medium text-blue-600">{exp.company}</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">{exp.role}</h3>
+                    <p className="text-lg font-semibold text-purple-400">{exp.company}</p>
                   </div>
                   <div className="text-right">
-                    <div className="flex items-center gap-2 text-gray-600 mb-1">
+                    <div className="flex items-center gap-2 text-gray-300 mb-1">
                       <Calendar size={16} />
                       <span className="font-medium">{exp.period}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-500">
+                    <div className="flex items-center gap-2 text-gray-400">
                       <MapPin size={16} />
                       <span>{exp.location}</span>
                     </div>
@@ -304,8 +307,8 @@ const Index = () => {
                 <ul className="space-y-3">
                   {exp.achievements.map((achievement, idx) => (
                     <li key={idx} className="flex items-start gap-4">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 flex-shrink-0"></div>
-                      <span className="text-gray-700 font-light leading-relaxed">{achievement}</span>
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span className="text-gray-300 leading-relaxed">{achievement}</span>
                     </li>
                   ))}
                 </ul>
@@ -315,42 +318,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section - Apple style */}
-      <section id="skills" className="py-24 px-6 bg-gray-50">
+      {/* Skills Section */}
+      <section id="skills" className="py-24 px-6 bg-gray-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">Skills & Technologies</h2>
-            <p className="text-xl text-gray-600 font-light">My technical expertise and tools</p>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Skills & Technologies</h2>
+            <p className="text-xl text-gray-300">My technical expertise and tools</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">Technical Skills</h3>
+            <div className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
+              <h3 className="text-xl font-bold text-white mb-6">Technical Skills</h3>
               <div className="flex flex-wrap gap-3">
                 {skills.technical.map((skill, index) => (
-                  <span key={index} className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                  <span key={index} className="px-4 py-2 bg-purple-600 text-white rounded-full text-sm font-medium hover:bg-purple-500 transition-colors">
                     {skill}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">Tools & Platforms</h3>
+            <div className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
+              <h3 className="text-xl font-bold text-white mb-6">Tools & Platforms</h3>
               <div className="flex flex-wrap gap-3">
                 {skills.tools.map((tool, index) => (
-                  <span key={index} className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                  <span key={index} className="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-500 transition-colors">
                     {tool}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">Architecture & Patterns</h3>
+            <div className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
+              <h3 className="text-xl font-bold text-white mb-6">Architecture & Patterns</h3>
               <div className="flex flex-wrap gap-3">
                 {skills.architecture.map((arch, index) => (
-                  <span key={index} className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                  <span key={index} className="px-4 py-2 bg-pink-600 text-white rounded-full text-sm font-medium hover:bg-pink-500 transition-colors">
                     {arch}
                   </span>
                 ))}
@@ -360,32 +363,32 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section - Apple style */}
-      <section id="projects" className="py-24 px-6 bg-white">
+      {/* Projects Section */}
+      <section id="projects" className="py-24 px-6 bg-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">Featured Projects</h2>
-            <p className="text-xl text-gray-600 font-light">Some of my notable work and achievements</p>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Featured Projects</h2>
+            <p className="text-xl text-gray-300">Some of my notable work and achievements</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow group">
+              <div key={index} className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700 group">
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors mb-2">
                       {project.title}
                     </h3>
-                    <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
+                    <span className={`px-3 py-1 ${project.gradient} text-white rounded-full text-sm font-medium`}>
                       {project.type}
                     </span>
                   </div>
-                  <ExternalLink className="text-gray-400 group-hover:text-blue-600 transition-colors" size={20} />
+                  <ExternalLink className="text-gray-400 group-hover:text-purple-400 transition-colors" size={20} />
                 </div>
-                <p className="text-gray-600 mb-6 font-light leading-relaxed">{project.description}</p>
+                <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, idx) => (
-                    <span key={idx} className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-xs font-medium">
+                    <span key={idx} className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-medium">
                       {tech}
                     </span>
                   ))}
@@ -396,64 +399,65 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Certifications Section - Apple style */}
-      <section id="certifications" className="py-24 px-6 bg-gray-50">
+      {/* Certifications Section */}
+      <section id="certifications" className="py-24 px-6 bg-gray-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">Certifications</h2>
-            <p className="text-xl text-gray-600 font-light">Professional development and continuous learning</p>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Certifications</h2>
+            <p className="text-xl text-gray-300">Professional development and continuous learning</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6 text-blue-600" />
+              <div key={index} className="bg-gray-800 rounded-3xl p-6 card-hover border border-gray-700">
+                <div className="w-12 h-12 gradient-orange rounded-xl flex items-center justify-center mb-4">
+                  <Award className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 leading-tight mb-3">
+                <h3 className="text-lg font-bold text-white leading-tight mb-3">
                   {cert.name}
                 </h3>
-                <p className="text-gray-600 font-medium mb-1">{cert.org}</p>
-                <p className="text-gray-500 text-sm">{cert.date}</p>
+                <p className="text-purple-400 font-medium mb-1">{cert.org}</p>
+                <p className="text-gray-400 text-sm">{cert.date}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section - Apple style */}
-      <section id="contact" className="py-24 px-6 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight">Let's Work Together</h2>
-          <p className="text-xl mb-16 opacity-80 font-light leading-relaxed">
+      {/* Contact Section */}
+      <section id="contact" className="py-24 px-6 bg-black relative overflow-hidden">
+        <div className="absolute inset-0 gradient-bg opacity-5"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Let's Work Together</h2>
+          <p className="text-xl mb-16 text-gray-300 leading-relaxed">
             Ready to bring your ideas to life? Let's discuss your next project.
           </p>
 
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div className="text-center">
-              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-8 h-8" />
+              <div className="w-16 h-16 gradient-purple rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-semibold mb-2">Email</h3>
-              <a href="mailto:sidiqtoha2000@gmail.com" className="opacity-80 hover:opacity-100 transition-opacity font-light">
+              <h3 className="font-bold text-white mb-2">Email</h3>
+              <a href="mailto:sidiqtoha2000@gmail.com" className="text-gray-300 hover:text-purple-400 transition-colors">
                 sidiqtoha2000@gmail.com
               </a>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-8 h-8" />
+              <div className="w-16 h-16 gradient-blue rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Phone className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-semibold mb-2">Phone</h3>
-              <a href="tel:+6283104846474" className="opacity-80 hover:opacity-100 transition-opacity font-light">
+              <h3 className="font-bold text-white mb-2">Phone</h3>
+              <a href="tel:+6283104846474" className="text-gray-300 hover:text-purple-400 transition-colors">
                 +62 831-0484-6474
               </a>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8" />
+              <div className="w-16 h-16 gradient-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-semibold mb-2">Location</h3>
-              <p className="opacity-80 font-light">Yogyakarta, Indonesia</p>
+              <h3 className="font-bold text-white mb-2">Location</h3>
+              <p className="text-gray-300">Yogyakarta, Indonesia</p>
             </div>
           </div>
 
@@ -461,30 +465,30 @@ const Index = () => {
             <a href="https://linkedin.com/in/sidiq-muhammad-toha" 
                target="_blank" 
                rel="noopener noreferrer" 
-               className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
-              <Linkedin size={20} />
+               className="w-14 h-14 bg-gray-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+              <Linkedin size={24} className="text-white" />
             </a>
             <a href="https://github.com/sidiqmuhammadtoha24" 
                target="_blank" 
                rel="noopener noreferrer" 
-               className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
-              <Github size={20} />
+               className="w-14 h-14 bg-gray-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+              <Github size={24} className="text-white" />
             </a>
             <a href="mailto:sidiqtoha2000@gmail.com" 
-               className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
-              <Mail size={20} />
+               className="w-14 h-14 bg-gray-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+              <Mail size={24} className="text-white" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* Footer - Apple style */}
-      <footer className="bg-gray-50 py-12 px-6">
+      {/* Footer */}
+      <footer className="bg-gray-900 py-12 px-6 border-t border-gray-800">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-gray-600 font-light">
+          <p className="text-gray-400">
             © 2024 Sidiq Muhammad Toha. All rights reserved.
           </p>
-          <p className="text-gray-500 text-sm mt-2 font-light">
+          <p className="text-gray-500 text-sm mt-2">
             Built with React, TypeScript, and Tailwind CSS
           </p>
         </div>
