@@ -267,7 +267,7 @@ const Index = () => {
                 <a href="tel:+6283104846474" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
                   <Phone size={28} />
                 </a>
-                <a href="https://linkedin.com/in/sidiq-muhammad-toha" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
+                <a href="https://www.linkedin.com/in/sidiq-muhammad-toha-60747a1b7/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
                   <Linkedin size={28} />
                 </a>
                 <a href="https://github.com/sidiqmuhammadtoha24" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
@@ -521,7 +521,7 @@ const Index = () => {
           </div>
 
           <div className="flex justify-center space-x-6">
-            <a href="https://linkedin.com/in/sidiq-muhammad-toha" 
+            <a href="https://www.linkedin.com/in/sidiq-muhammad-toha-60747a1b7/" 
                target="_blank" 
                rel="noopener noreferrer" 
                className="w-14 h-14 bg-gray-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
