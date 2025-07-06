@@ -61,21 +61,24 @@ const Index = () => {
       description: 'A reusable and secure form field widget with customizable design and input sanitization. Published to pub.dev and available as an open-source Flutter package.',
       tech: ['Flutter', 'Dart'],
       type: 'Packages',
-      gradient: 'gradient-blue'
+      gradient: 'gradient-blue',
+      src: 'https://pub.dev/packages/siqma_field'
     },
     {
       title: 'Oltime Network',
       description: 'Cross-platform mobile application connecting job seekers with recruitment agencies in the US market. Successfully published to both App Store and Play Store.',
       tech: ['Flutter', 'Dart', 'Firebase', 'REST API', 'State Management'],
       type: 'Mobile App',
-      gradient: 'gradient-purple'
+      gradient: 'gradient-purple',
+      src: 'https://apps.apple.com/id/app/oltime-network/id6476977843'
     },
     {
       title: 'CA Repository',
       description: 'Web platform for displaying CA documents and certificates from EJBCA, providing efficient access to Certificate Authority repositories.',
       tech: ['Flutter Web', 'EJBCA Integration', 'Document Management'],
       type: 'Web Application',
-      gradient: 'gradient-blue'
+      gradient: 'gradient-blue',
+      src: 'https://repository.enkripa.id/'
     }
   ];
 
@@ -102,6 +105,41 @@ const Index = () => {
         'Optimized app performance by reducing loading times and improving responsiveness',
         'Improved memory and energy efficiency for smoother user experience',
         'Built and deployed Flutter-based website and app to both App Store and Play Store'
+      ]
+    },
+    {
+      company: 'CV Karya Hidup Sentosa',
+      role: 'Fulltime Warehouse Admin',
+      period: 'Jul 2022 - Sep 2023',
+      location: 'Yogyakarta',
+      achievements: [
+        'Enhanced warehouse efficiency by optimizing delivery and request-handling processes, noticeably reducing turnaround times.',
+        'Supported loading and unloading operations by coordinating material handling with forklift (CAT GP20-35N, CAT DP20-35N3, Toyota 62-8FD30 certified), ensuring timely and accurate delivery of goods to meet operational schedules.',
+        'Ensured inventory accuracy by meticulously tracking incoming and outgoing goods using Oracle E-Bussines Suite Applications, aligning stock quantities with documentation and minimizing discrepancies.',
+        'Optimized delivery processes by streamlining request handling and stock reporting, reducing turnaround times and supporting on-time Proof of Delivery (POD) submission.',
+        'Adhered to warehouse safety standards by consistently using Personal Protective Equipment (APD) and following operational protocols, contributing to a secure working environment.',
+        'Demonstrated strong communication and responsibility by collaborating with teams to maintain operational efficiency and resolve discrepancies promptly.'
+      ]
+    },
+    {
+      company: 'Kopi Westprog',
+      role: 'Partime Cashier & Waiters',
+      period: 'Apr 2021 - Jul 2022',
+      location: 'Yogyakarta',
+      achievements: [
+        'Accelerated beverage production speed, cutting down processing time and improving service flow.',
+        'Boosted customer satisfaction and loyalty, as shown by a noticeable increase in repeat visits.'
+      ]
+    },
+    {
+      company: 'Kecamatan Minggir',
+      role: 'Internship Civil Service Staff',
+      period: 'Feb 2021 - Apr 2021',
+      location: 'Yogyakarta',
+      achievements: [
+        'Streamlined personnel reporting by compiling and submitting accurate reports to district and higher authorities on time.',
+        'Improved administrative processes by maintaining employee records, attendance lists, and correspondence with full compliance.',
+        'Organized personnel archives per regulatory standards, ensuring efficient data retrieval and management.'
       ]
     }
   ];
@@ -215,6 +253,7 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   className="bg-gray-800 border-2 border-gray-700 text-white hover:bg-gray-700 hover:border-gray-600 px-8 py-4 rounded-xl font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  onClick={() => window.open('https://sidiqmuhammadtoha24.github.io/CV/SidiqMuhammadTohaCV.pdf', '_blank')}
                 >
                   <Download className="mr-2" size={18} />
                   Download CV
@@ -394,7 +433,16 @@ const Index = () => {
                       {project.type}
                     </span>
                   </div>
-                  <ExternalLink className="text-gray-400 group-hover:text-purple-400 transition-colors" size={20} />
+                    <a 
+                      href={project.src}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink
+                          className="text-gray-400 group-hover:text-purple-400 transition-colors"
+                          size={20}
+                        />
+                    </a>
                 </div>
                 <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
