@@ -52,7 +52,7 @@ const Index = () => {
   const skills = {
     technical: ['Dart', 'Flutter', 'Golang', 'Java', 'HTML/CSS', 'REST API', 'Firebase', 'MySQL', 'Gradle'],
     tools: ['Android Studio', 'Git', 'Docker', 'CI/CD', 'Burp Suite', 'JMeter', 'Ms.Word'],
-    architecture: ['Clean Architecture', 'MVC Pattern', 'State Management (BLoC)', 'Responsive Design']
+    architecture: ['Clean Architecture', 'MVC Pattern', 'MVVM Pattern', 'State Management (BLoC, Provider, GetX)', 'Responsive Design']
   };
 
   const projects = [
@@ -107,6 +107,10 @@ const Index = () => {
   ];
 
   const certifications = [
+    { name: 'Standar Menajemen Resiko - ISO 31000', org: 'PT. Inspirasi Duta Energi Abadi', date: 'May 2025' },
+    { name: 'Environment Management System - ISO 14001', org: 'PT. Inspirasi Duta Energi Abadi', date: 'May 2025' },
+    { name: 'Quality Management System - ISO 9001', org: 'PT. Inspirasi Duta Energi Abadi', date: 'May 2025' },
+    { name: 'Safety Management System - ISO 45001', org: 'PT. Inspirasi Duta Energi Abadi', date: 'May 2025' },
     { name: 'Information Security Management System - ISO/IEC 27001:2022', org: 'CBQA Global', date: 'Aug 2024' },
     { name: 'Personal Data Protection Law No.27/2022', org: 'CBQA Global', date: 'Nov 2024' },
     { name: 'Project Based Internship Mobile Developer Bank Mandiri', org: 'Rakamin Academy & Mandiri', date: 'Nov 2023' },
