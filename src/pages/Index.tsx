@@ -50,12 +50,19 @@ const Index = () => {
   }, []);
 
   const skills = {
-    technical: ['Dart', 'Flutter', 'Golang', 'Java', 'HTML/CSS', 'REST API', 'Firebase', 'MySQL'],
-    tools: ['Android Studio', 'Git', 'Docker', 'CI/CD', 'Burp Suite', 'JMeter'],
+    technical: ['Dart', 'Flutter', 'Golang', 'Java', 'HTML/CSS', 'REST API', 'Firebase', 'MySQL', 'Gradle'],
+    tools: ['Android Studio', 'Git', 'Docker', 'CI/CD', 'Burp Suite', 'JMeter', 'Ms.Word'],
     architecture: ['Clean Architecture', 'MVC Pattern', 'State Management (BLoC)', 'Responsive Design']
   };
 
   const projects = [
+    {
+      title: 'Siqma Field',
+      description: 'A reusable and secure form field widget with customizable design and input sanitization. Published to pub.dev and available as an open-source Flutter package.',
+      tech: ['Flutter', 'Dart'],
+      type: 'Packages',
+      gradient: 'gradient-blue'
+    },
     {
       title: 'Oltime Network',
       description: 'Cross-platform mobile application connecting job seekers with recruitment agencies in the US market. Successfully published to both App Store and Play Store.',
