@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { ThreeJSBackground } from "@/components/ThreeJSBackground";
 import { 
   Mail, 
   Phone, 
@@ -173,7 +174,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black relative">
+      {/* Advanced 3D Background */}
+      <ThreeJSBackground />
+      
+      <div className="relative z-10">{/* Content wrapper */}
       {/* Navigation - Modern Dark */}
       <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-xl z-50 border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -225,8 +230,8 @@ const Index = () => {
 
       {/* Hero Section - Modern Dark with Gradient */}
       <section id="home" className="pt-32 pb-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 gradient-mesh opacity-20 pattern-dots"></div>
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse floating"></div>
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-screen filter blur-xl opacity-30 animate-pulse floating"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse floating" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse floating" style={{animationDelay: '4s'}}></div>
         
@@ -581,6 +586,8 @@ const Index = () => {
           </p>
         </div>
       </footer>
+      
+      </div> {/* End content wrapper */}
     </div>
   );
 };
