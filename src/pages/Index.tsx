@@ -43,6 +43,17 @@ const Index = () => {
           }
         }
       });
+
+      // Reveal animations on scroll
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('revealed');
+        }
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -214,24 +225,33 @@ const Index = () => {
 
       {/* Hero Section - Modern Dark with Gradient */}
       <section id="home" className="pt-32 pb-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 gradient-bg opacity-10"></div>
+        <div className="absolute inset-0 gradient-mesh opacity-20 pattern-dots"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse floating"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse floating" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse floating" style={{animationDelay: '4s'}}></div>
+        
         <div className="max-w-4xl mx-auto relative z-10">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="text-center">
               <div className="mb-12">
-                <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl glow-effect">
+                <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl glow-effect pulse-glow magnetic">
                   <img 
                     src="/lovable-uploads/8418aaaa-30e3-4c93-ab70-05528f31419f.png" 
                     alt="Sidiq Muhammad Toha"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight">
-                  Sidiq Muhammad Toha
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight slide-in-up">
+                  <span className="inline-block hover:text-shimmer transition-all duration-300">Sidiq</span>{' '}
+                  <span className="inline-block hover:text-shimmer transition-all duration-300" style={{animationDelay: '0.1s'}}>Muhammad</span>{' '}
+                  <span className="inline-block hover:text-shimmer transition-all duration-300" style={{animationDelay: '0.2s'}}>Toha</span>
                 </h1>
-                <p className="text-3xl md:text-4xl text-gradient mb-6 font-semibold">Flutter Developer</p>
-                <p className="text-lg text-gray-400 flex items-center justify-center gap-2">
-                  <MapPin size={18} />
+                <p className="text-3xl md:text-4xl text-gradient mb-6 font-semibold slide-in-up" style={{animationDelay: '0.3s'}}>
+                  <span className="inline-block bounce-gentle">Flutter</span>{' '}
+                  <span className="inline-block bounce-gentle" style={{animationDelay: '0.5s'}}>Developer</span>
+                </p>
+                <p className="text-lg text-gray-400 flex items-center justify-center gap-2 slide-in-up" style={{animationDelay: '0.5s'}}>
+                  <MapPin size={18} className="text-purple-400" />
                   Yogyakarta, Indonesia
                 </p>
               </div>
@@ -241,36 +261,42 @@ const Index = () => {
                 Contribute to improving system efficiency and security through CI/CD implementation and vulnerability testing.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-6 mb-12">
+              <div className="flex flex-wrap justify-center gap-6 mb-12 slide-in-up" style={{animationDelay: '0.7s'}}>
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-xl font-semibold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-xl font-semibold shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 transform hover:scale-110 magnetic glow-purple relative overflow-hidden group"
                   onClick={() => scrollToSection('contact')}
                 >
-                  <Mail className="mr-2" size={18} />
-                  Get In Touch
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="relative z-10 flex items-center">
+                    <Mail className="mr-2" size={18} />
+                    Get In Touch
+                  </span>
                 </Button>
                 <Button 
                   size="lg" 
-                  className="bg-gray-800 border-2 border-gray-700 text-white hover:bg-gray-700 hover:border-gray-600 px-8 py-4 rounded-xl font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-gray-800 border-2 border-gray-700 text-white hover:bg-gray-700 hover:border-purple-500 px-8 py-4 rounded-xl font-semibold shadow-2xl transition-all duration-500 transform hover:scale-110 magnetic relative overflow-hidden group"
                   onClick={() => window.open('https://sidiqmuhammadtoha24.github.io/CV/SidiqMuhammadTohaCV.pdf', '_blank')}
                 >
-                  <Download className="mr-2" size={18} />
-                  Download CV
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-gray-700 to-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="relative z-10 flex items-center">
+                    <Download className="mr-2" size={18} />
+                    Download CV
+                  </span>
                 </Button>
               </div>
 
-              <div className="flex justify-center space-x-8">
-                <a href="mailto:sidiqtoha2000@gmail.com" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
+              <div className="flex justify-center space-x-8 slide-in-up" style={{animationDelay: '0.9s'}}>
+                <a href="mailto:sidiqtoha2000@gmail.com" className="text-gray-400 hover:text-purple-400 transition-all duration-500 transform hover:scale-125 magnetic glow-effect p-3 rounded-full hover:bg-purple-500/20">
                   <Mail size={28} />
                 </a>
-                <a href="tel:+6283104846474" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
+                <a href="tel:+6283104846474" className="text-gray-400 hover:text-green-400 transition-all duration-500 transform hover:scale-125 magnetic glow-effect p-3 rounded-full hover:bg-green-500/20">
                   <Phone size={28} />
                 </a>
-                <a href="https://www.linkedin.com/in/sidiq-muhammad-toha-60747a1b7/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
+                <a href="https://www.linkedin.com/in/sidiq-muhammad-toha-60747a1b7/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-all duration-500 transform hover:scale-125 magnetic glow-effect p-3 rounded-full hover:bg-blue-500/20">
                   <Linkedin size={28} />
                 </a>
-                <a href="https://github.com/sidiqmuhammadtoha24" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110">
+                <a href="https://github.com/sidiqmuhammadtoha24" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-all duration-500 transform hover:scale-125 magnetic glow-effect p-3 rounded-full hover:bg-orange-500/20">
                   <Github size={28} />
                 </a>
               </div>
@@ -279,7 +305,7 @@ const Index = () => {
         </div>
         
         <div className="text-center mt-20">
-          <ChevronDown className="animate-bounce text-purple-400 mx-auto" size={32} />
+          <ChevronDown className="animate-bounce text-purple-400 mx-auto glow-purple bounce-gentle cursor-pointer hover:scale-110 transition-transform duration-300" size={32} onClick={() => scrollToSection('about')} />
         </div>
       </section>
 
@@ -294,32 +320,32 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
-              <div className="w-16 h-16 gradient-purple rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 card-hover border border-gray-700/50 tilt scroll-reveal group">
+              <div className="w-16 h-16 gradient-purple rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 rotate-slow">
                 <Smartphone className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Mobile Development</h3>
-              <p className="text-gray-300 leading-relaxed">
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-gradient transition-all duration-300">Mobile Development</h3>
+              <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                 Specialized in Flutter cross-platform development with published apps on both App Store and Play Store.
               </p>
             </div>
 
-            <div className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
-              <div className="w-16 h-16 gradient-blue rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 card-hover border border-gray-700/50 tilt scroll-reveal group" style={{animationDelay: '0.2s'}}>
+              <div className="w-16 h-16 gradient-blue rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 rotate-slow" style={{animationDelay: '5s'}}>
                 <Globe className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Web Development</h3>
-              <p className="text-gray-300 leading-relaxed">
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-gradient-blue transition-all duration-300">Web Development</h3>
+              <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                 Building responsive web applications and backend systems with modern technologies and best practices.
               </p>
             </div>
 
-            <div className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
-              <div className="w-16 h-16 gradient-pink rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 card-hover border border-gray-700/50 tilt scroll-reveal group" style={{animationDelay: '0.4s'}}>
+              <div className="w-16 h-16 gradient-pink rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 rotate-slow" style={{animationDelay: '10s'}}>
                 <Code className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">System Security</h3>
-              <p className="text-gray-300 leading-relaxed">
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-gradient transition-all duration-300">System Security</h3>
+              <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                 Experienced in security testing, vulnerability assessment, and implementing CI/CD pipelines for secure deployments.
               </p>
             </div>
@@ -337,31 +363,34 @@ const Index = () => {
 
           <div className="space-y-12">
             {experience.map((exp, index) => (
-              <div key={index} className="bg-gray-800 rounded-3xl p-8 card-hover border border-gray-700">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">{exp.role}</h3>
-                    <p className="text-lg font-semibold text-purple-400">{exp.company}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="flex items-center gap-2 text-gray-300 mb-1">
-                      <Calendar size={16} />
-                      <span className="font-medium">{exp.period}</span>
+              <div key={index} className="bg-gray-800/60 backdrop-blur-sm rounded-3xl p-8 card-hover border border-gray-700/50 scroll-reveal tilt relative overflow-hidden group" style={{animationDelay: `${index * 0.2}s`}}>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-gradient transition-all duration-300">{exp.role}</h3>
+                      <p className="text-lg font-semibold text-purple-400 group-hover:text-pink-400 transition-colors duration-300">{exp.company}</p>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-400">
-                      <MapPin size={16} />
-                      <span>{exp.location}</span>
+                    <div className="text-right">
+                      <div className="flex items-center gap-2 text-gray-300 mb-1 group-hover:text-white transition-colors duration-300">
+                        <Calendar size={16} className="text-purple-400" />
+                        <span className="font-medium">{exp.period}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                        <MapPin size={16} className="text-purple-400" />
+                        <span>{exp.location}</span>
+                      </div>
                     </div>
                   </div>
+                  <ul className="space-y-3">
+                    {exp.achievements.map((achievement, idx) => (
+                      <li key={idx} className="flex items-start gap-4 group/item">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2.5 flex-shrink-0 group-hover/item:bg-pink-400 transition-colors duration-300 group-hover/item:scale-150"></div>
+                        <span className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-3">
-                  {exp.achievements.map((achievement, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2.5 flex-shrink-0"></div>
-                      <span className="text-gray-300 leading-relaxed">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
