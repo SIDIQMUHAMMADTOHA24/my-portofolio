@@ -61,13 +61,22 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const skills = {
-    technical: ['Dart', 'Flutter', 'Golang', 'Java', 'HTML/CSS', 'REST API', 'Firebase', 'MySQL', 'Gradle'],
-    tools: ['Android Studio', 'Git', 'Docker', 'CI/CD', 'Burp Suite', 'JMeter', 'Ms.Word'],
-    architecture: ['Clean Architecture', 'MVC Pattern', 'MVVM Pattern', 'State Management (BLoC, Provider, GetX)', 'Responsive Design']
+    const skills = {
+      technical: ['Dart', 'Flutter', 'Golang', 'Git', 'Java', 'HTML/CSS', 'REST API', 'MySQL', 'Gradle', 'IIS', 'Nginx'],
+      tools: ['Android Studio', 'GitHub', 'GitLab', 'Docker', 'CI/CD', 'GCP', 'Supabase', 'Firebase', 'Microsoft Word'],
+      architecture: ['Clean Architecture', 'MVC Pattern', 'MVVM Pattern', 'State Management (BLoC, Provider, GetX)', 'Responsive Design']
   };
 
+
   const projects = [
+    {
+      title: 'Karang Taruna Bakti Budaya Web Platform',
+      description: 'Developed two fully functional websites (User and Admin) for Karang Taruna Bakti Budaya using React, Supabase (as backend and authentication), and deployed them on Vercel. The platforms are designed for streamlined community management and user interaction.',
+      tech: ['React', 'Supabase'],
+      type: 'Web Application',
+      gradient: 'gradient-purple',
+      src: 'https://karang-taruna-bakti-budaya.vercel.app/'
+    },
     {
       title: 'Siqma Field',
       description: 'A reusable and secure form field widget with customizable design and input sanitization. Published to pub.dev and available as an open-source Flutter package.',
@@ -89,7 +98,7 @@ const Index = () => {
       description: 'Web platform for displaying CA documents and certificates from EJBCA, providing efficient access to Certificate Authority repositories.',
       tech: ['Flutter Web', 'EJBCA Integration', 'Document Management'],
       type: 'Web Application',
-      gradient: 'gradient-blue',
+      gradient: 'gradient-purple',
       src: 'https://repository.enkripa.id/'
     }
   ];
@@ -157,6 +166,11 @@ const Index = () => {
   ];
 
   const certifications = [
+    { name: 'Advanced App Operations', org: 'Google Cloud Skills Boost', date: 'Jul 2025' },
+    { name: 'Core Infrastructure and Security',  org: 'Google Cloud Skills Boost', date: 'Jul 2025' },
+    { name: 'Modern Application Deployment',  org: 'Google Cloud Skills Boost', date: 'Jul 2025' },
+    { name: 'The Basics of Google Cloud Compute',  org: 'Google Cloud Skills Boost', date: 'Jul 2025' },
+    { name: 'Use APIs to Work with Cloud Storage',  org: 'Google Cloud Skills Boost', date: 'Jul 2025' },
     { name: 'Standar Menajemen Resiko - ISO 31000', org: 'PT. Inspirasi Duta Energi Abadi', date: 'May 2025' },
     { name: 'Environment Management System - ISO 14001', org: 'PT. Inspirasi Duta Energi Abadi', date: 'May 2025' },
     { name: 'Quality Management System - ISO 9001', org: 'PT. Inspirasi Duta Energi Abadi', date: 'May 2025' },
